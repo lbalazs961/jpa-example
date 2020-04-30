@@ -45,10 +45,13 @@ public class Main {
             for (int i = 0; i < 1000; i++)
             {
                 em.getTransaction().begin();
-                em.persist(randomPerson());
+                Person t = randomPerson();
+                em.persist(t);
                 em.getTransaction().commit();
-                System.out.println(randomPerson());
+                System.out.println(t);
             }
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
         }
         finally
         {
